@@ -40,7 +40,7 @@ public class C03_JsonObjesiOlusturma {
                   "lastname":"Brown"
                   }
          */
-        JSONObject mainJsonObject = new JSONObject();
+        JSONObject mainJsonObject = new JSONObject(); //once bunu oluşturdum, 3. sirada iken inner i.
         JSONObject innerJsonObject = new JSONObject();
 
         mainJsonObject.put("firstname", "Jim");

@@ -37,13 +37,29 @@ public class C04_Put_ResponseBilgileriAssertion {
         jsonObjectBody.put("userId", "12");
         jsonObjectBody.put("id", 35);
 
-        response = given().contentType(ContentType.JSON).when().body(jsonObjectBody.toString()).put(url);
-        //git şu URL'e, body turunu Json olarak seç, body imin içine yukarıda tanımladıgım JSonObjemi
-        //yapıştır.
+        response = given().contentType(ContentType.JSON).
+                   when().body(jsonObjectBody.toString()).put(url);
+
+        //when demek ilgili url'e benim oluşturdugum body'i yolla veya put demek---yani emrimiz bu.
+        //yani bunu yolladıgın ZAMAN
+        //given demek ise yollamış oldugum bu body vb.'nin sonucunda ise bana içerigi Json olacak şekilde yolla
+        //demek.
+        //bunu bana en son cevap olarak VER
+
+        response.prettyPrint();//evet burada jsonformatinda bize dondu.
+        /*
+                   {
+                   "id": 35,
+                   "title": "Kenan",
+                   "body": "sezer",
+                   "userId": "12"
+                   }
+         */
+
+
         //bana burada url lazım yani hedef olarak nereyei degiştireyim.
         //daha sonra bir Json formatinda Body lazim
 
-        response.prettyPrint();//response u yazdiriyrm
 
         //şimdi de response u test edelim
 
@@ -51,6 +67,18 @@ public class C04_Put_ResponseBilgileriAssertion {
                 statusCode(200).
                 contentType("application/json; charset=utf-8").
                 header("Server", "cloudflare").statusLine("HTTP/1.1 200 OK");
+
+    /*
+    hoCA NIN notu;
+    SİRALAMA
+     // 1 - Request icin Url ve Body hazirla
+     // 2 - Expected Data hazirla
+     // 3 - Response kaydet
+     // 4 - Assertion
+        //given()'dan sonra preConditionlar when() dan sonra ise yapılacak işlemler gelir.
+     */
+
+
 
     }
 }
