@@ -6,6 +6,8 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 public class C08_JSONObjectVerileriCagirma {
+    //ALternatif CLASS ADI: JSONPATHKULLANIMI
+
      /*
     {
     "firstName": "John",
