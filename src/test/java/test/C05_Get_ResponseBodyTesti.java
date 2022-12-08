@@ -20,6 +20,13 @@ public class C05_Get_ResponseBodyTesti {
 
     @Test
     public void bodyResponseTestiGet() {
+        //Kullanıcı Konak Hotel adli sitemiz de rezervasyon yaptııgında post methodu ile WebService api miz digip
+        //database'e bu bilgileri kaydedeer ve response olarak da bana kayıt tamamlanmıştır demesni isterim.
+        //ya da WebService api ye şu soylenıyr: git bana şu id'nin tüm sutunlardaki satir bilgilerini bana
+        //DATABASE imden getir.
+        //e devlet in dataBase i olarak ben sadece soy ismimi degiştirmek istiyrm dersem WebApi gidecek
+        //edevlet databse inden sadece soyadını gunceleyyecek ama response olarak evet degiştirdim ama
+        //tum bilgileri yeniden dndurmesi gerekiyor ki hata var mi yok mu göreyim ve bilgileneyim
         Response response;
         String url;
 

@@ -92,8 +92,8 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
 
         JsonPath pathResponse = response.jsonPath();
 
-        assertEquals(catiExpectedJson.getJSONObject("booking").get("firstname"), pathResponse.getString("booking.firstname"));
-        assertEquals(catiExpectedJson.getJSONObject("booking").get("lastname"), pathResponse.getString("booking.lastname"));
+        assertEquals("booking firstname çalışmadı",catiExpectedJson.getJSONObject("booking").get("firstname"), pathResponse.getString("booking.firstname"));
+        assertEquals("hata mesaji",catiExpectedJson.getJSONObject("booking").get("lastname"), pathResponse.getString("booking.lastname"));
         assertEquals(catiExpectedJson.getJSONObject("booking").get("totalprice"), pathResponse.getInt("booking.totalprice"));
         assertEquals(catiExpectedJson.getJSONObject("booking").get("depositpaid"), pathResponse.getBoolean("booking.depositpaid"));
 
@@ -104,6 +104,9 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
         assertEquals(catiExpectedJson.getJSONObject("booking").get("additionalneeds"), pathResponse.getString("booking.additionalneeds"));
 
         //Assert'ü sildim ve import static org.junit.Assert.assertEquals; olarak import ettim.
+        //jsonPath de sadece "get" de kullanılabiliyor. getInt veya getString demeden ama
+        //valuesi String olana getInt dyemezsin
+
 
 
     }
