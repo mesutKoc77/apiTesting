@@ -1,12 +1,11 @@
 package test;
 
-import io.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
 
 public class C08_JSONObjectVerileriCagirma {
-    //ALternatif CLASS ADI: JSONPATHKULLANIMI
+
 
      /*
     {
@@ -32,29 +31,29 @@ public class C08_JSONObjectVerileriCagirma {
      */
 
     @Test
-    public void jsonPath01(){
+    public void jsonPath01() {
         //https://jsonpath.com/
-        JSONObject catiObject=new JSONObject();
-        JSONObject adressJson=new JSONObject();
-        JSONObject iPhone=new JSONObject();
-        JSONObject home=new JSONObject();
-        iPhone.put("type","iPhone");
-        iPhone.put("number","0123-4567-8888");
-        home.put("type","home");
-        home.put("number","0123-4567-8910");
-        JSONArray phoneArrayJson=new JSONArray();
+        JSONObject catiObject = new JSONObject();
+        JSONObject adressJson = new JSONObject();
+        JSONObject iPhone = new JSONObject();
+        JSONObject home = new JSONObject();
+        iPhone.put("type", "iPhone");
+        iPhone.put("number", "0123-4567-8888");
+        home.put("type", "home");
+        home.put("number", "0123-4567-8910");
+        JSONArray phoneArrayJson = new JSONArray();
         phoneArrayJson.put(iPhone);
         phoneArrayJson.put(home);
 
-        adressJson.put("streetAddress","naist street");
-        adressJson.put("city","Nara");
-        adressJson.put("postalCode","630-0192");
+        adressJson.put("streetAddress", "naist street");
+        adressJson.put("city", "Nara");
+        adressJson.put("postalCode", "630-0192");
 
-        catiObject.put("firstName","John");
-        catiObject.put("lastName","doe");
-        catiObject.put("age",26);
-        catiObject.put("address",adressJson);
-        catiObject.put("phoneNumbers",phoneArrayJson);
+        catiObject.put("firstName", "John");
+        catiObject.put("lastName", "doe");
+        catiObject.put("age", 26);
+        catiObject.put("address", adressJson);
+        catiObject.put("phoneNumbers", phoneArrayJson);
 
         System.out.println("firstName = " + catiObject.get("firstName"));
         System.out.println("catiObject.get(\"lastName\") = " + catiObject.get("lastName"));
@@ -67,26 +66,26 @@ public class C08_JSONObjectVerileriCagirma {
         System.out.println("*********************************");
         System.out.println("=============YA DA==============");
 
-        JSONObject kisiBilgisi=new JSONObject();
-        JSONObject adresBilgisi=new JSONObject();
-                   adresBilgisi.put("streetAddress","naist street");
-                   adresBilgisi.put("city","Nara");
-                   adresBilgisi.put("postalCode","630-0192");
+        JSONObject kisiBilgisi = new JSONObject();
+        JSONObject adresBilgisi = new JSONObject();
+        adresBilgisi.put("streetAddress", "naist street");
+        adresBilgisi.put("city", "Nara");
+        adresBilgisi.put("postalCode", "630-0192");
 
-        JSONArray telefonBilgisi=new JSONArray();
-                  JSONObject sifirtelefonBilgisi=new JSONObject();
-                  JSONObject birtelefonBilgisi=new JSONObject();
-                             sifirtelefonBilgisi.put("type","iPhone");
-                             sifirtelefonBilgisi.put("number","0123-4567-8888");
-                              birtelefonBilgisi.put("type","home");
-                              birtelefonBilgisi.put("number","0123-4567-8910");
-                  telefonBilgisi.put(0,sifirtelefonBilgisi);
-                  telefonBilgisi.put(1,birtelefonBilgisi);
-        kisiBilgisi.put("firstName","John");
-        kisiBilgisi.put("lastName","doe");
-        kisiBilgisi.put("age",26);
-        kisiBilgisi.put("address",adresBilgisi);
-        kisiBilgisi.put("phoneNumbers",telefonBilgisi);
+        JSONArray telefonBilgisi = new JSONArray();
+        JSONObject sifirtelefonBilgisi = new JSONObject();
+        JSONObject birtelefonBilgisi = new JSONObject();
+        sifirtelefonBilgisi.put("type", "iPhone");
+        sifirtelefonBilgisi.put("number", "0123-4567-8888");
+        birtelefonBilgisi.put("type", "home");
+        birtelefonBilgisi.put("number", "0123-4567-8910");
+        telefonBilgisi.put(0, sifirtelefonBilgisi);
+        telefonBilgisi.put(1, birtelefonBilgisi);
+        kisiBilgisi.put("firstName", "John");
+        kisiBilgisi.put("lastName", "doe");
+        kisiBilgisi.put("age", 26);
+        kisiBilgisi.put("address", adresBilgisi);
+        kisiBilgisi.put("phoneNumbers", telefonBilgisi);
 
         System.out.println(kisiBilgisi);
 
@@ -97,32 +96,32 @@ public class C08_JSONObjectVerileriCagirma {
         //kaç adet json var dedigiimizde açılıp kapanan süslü parantezleri esas alacgız
         //4 adet var +1 de arrayJson var
 
-        JSONObject kisiBilgisi1=new JSONObject();
-        JSONObject adresBilgisi1=new JSONObject();
-        JSONObject cepTelefonBilgisi1=new JSONObject();
-        JSONObject evTelefonBilgisi1=new JSONObject();
+        JSONObject kisiBilgisi1 = new JSONObject();
+        JSONObject adresBilgisi1 = new JSONObject();
+        JSONObject cepTelefonBilgisi1 = new JSONObject();
+        JSONObject evTelefonBilgisi1 = new JSONObject();
 
-        JSONArray tumTelefonBilgisi=new JSONArray();
+        JSONArray tumTelefonBilgisi = new JSONArray();
 
         //en içten bşalayarak bilgileri giriecegim. En içte cep telefon bilgisi var
 
-        cepTelefonBilgisi1.put("type","iPhone");
-        cepTelefonBilgisi1.put("number","0123-4567-8888");
-        evTelefonBilgisi1.put("type","home");
-        evTelefonBilgisi1.put("number","0123-4567-8910");
+        cepTelefonBilgisi1.put("type", "iPhone");
+        cepTelefonBilgisi1.put("number", "0123-4567-8888");
+        evTelefonBilgisi1.put("type", "home");
+        evTelefonBilgisi1.put("number", "0123-4567-8910");
 
-            tumTelefonBilgisi.put(cepTelefonBilgisi1);
-            tumTelefonBilgisi.put(evTelefonBilgisi1);
+        tumTelefonBilgisi.put(cepTelefonBilgisi1);
+        tumTelefonBilgisi.put(evTelefonBilgisi1);
 
-            adresBilgisi1.put("streetAddress","naist street");
-            adresBilgisi1.put("city","Nara");
-            adresBilgisi1.put("postalCode","630-0192");
+        adresBilgisi1.put("streetAddress", "naist street");
+        adresBilgisi1.put("city", "Nara");
+        adresBilgisi1.put("postalCode", "630-0192");
 
-            kisiBilgisi1.put("firstName","John");
-            kisiBilgisi1.put("lastName","doe");
-            kisiBilgisi1.put("age",26);
-            kisiBilgisi1.put("address",adresBilgisi1);
-            kisiBilgisi1.put("phoneNumbers",tumTelefonBilgisi);
+        kisiBilgisi1.put("firstName", "John");
+        kisiBilgisi1.put("lastName", "doe");
+        kisiBilgisi1.put("age", 26);
+        kisiBilgisi1.put("address", adresBilgisi1);
+        kisiBilgisi1.put("phoneNumbers", tumTelefonBilgisi);
 
         System.out.println(kisiBilgisi1);
         /*
@@ -161,9 +160,7 @@ public class C08_JSONObjectVerileriCagirma {
         System.out.println(kisiBilgisi1.getJSONArray("phoneNumbers").getJSONObject(1).get("number"));
 
 
-
     }
-
 
 
 }
