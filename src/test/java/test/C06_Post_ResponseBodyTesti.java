@@ -41,15 +41,17 @@ public class C06_Post_ResponseBodyTesti {
         //toString() diyerek de ilgili nesneyi yani jsonObject nesnesini String e cevirerek post ediyor
         //
         response = given().contentType(ContentType.JSON)
-                   .when().body(jsonObject.toString()).post(url);
+                .when().body(jsonObject.toString()).post(url);
 
         //when demek ilgili url'e benim oluşturdugum body yolla demek---yani emrimiz bu.
-        //yani bunu yolladıgın ZAMAN
-        //given demek ise yollamış oldugum bu body vb.'nin sonucunda ise bana içerigi Json olacak şekilde yolla
-        //demek.
+        //yani bunu yolladıgın ZAMAN...
+        //given demek ise post un içerigini, Json olacak şekilde yolla.
+        //ve
         //bunu bana en son cevap olarak VER
+        //sonuc olarak given dan sonra daha çok öncesinden yapılması gereken şartlar vb. soyluyoruz.
+        //when den sonra ise genellikle Aksiyon un yani ne yapılacagı emriniz veriyoruz.
 
-       // response.prettyPrint(); // ve bana json formatinda cevap verdi
+        // response.prettyPrint(); // ve bana json formatinda cevap verdi
         /*
         {
     "title": "API",

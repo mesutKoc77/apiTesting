@@ -27,7 +27,8 @@ public class C10_Get_ResponseBodyTestiListKullanimi {
         url = "http://dummy.restapiexample.com/api/v1/employees";
 
         response = given().contentType(ContentType.JSON).when().get(url);
-        //response.prettyPrint(); //aldik Jsonpath.com'a yapıştırdık.
+        response.prettyPrint(); //aldik Jsonpath.com'a yapıştırdık.
+        response.prettyPrint();
 
         response.then().assertThat()
                 .statusCode(200)

@@ -10,6 +10,8 @@ import org.testng.asserts.SoftAssert;
 import static io.restassured.RestAssured.given;
 
 public class C14_Put_SoftAssertIleExpectedDataTesti {
+
+
     /*
     http://dummy.restapiexample.com/api/v1/update/21 url’ine asagidaki
     body’ye sahip bir PUT request gonderdigimizde donen response’un asagidaki gibi oldugunu test edin.
@@ -69,11 +71,11 @@ public class C14_Put_SoftAssertIleExpectedDataTesti {
 
         JSONObject requestPutBody = new JSONObject();
 
-            JSONObject requestInnerData = new JSONObject();
-            requestInnerData.put("name", "Ahmet");
-            requestInnerData.put("salary", "1230");
-            requestInnerData.put("age", "44");
-            requestInnerData.put("id", 40);
+        JSONObject requestInnerData = new JSONObject();
+        requestInnerData.put("name", "Ahmet");
+        requestInnerData.put("salary", "1230");
+        requestInnerData.put("age", "44");
+        requestInnerData.put("id", 40);
 
         requestPutBody.put("status", "success");
         requestPutBody.put("data", requestInnerData);
@@ -85,14 +87,14 @@ public class C14_Put_SoftAssertIleExpectedDataTesti {
         //tdegişiklik talebimi yolladım
 
         JSONObject expectedAnaResponse = new JSONObject();
-           JSONObject expectedDisDataResponse = new JSONObject();
-             JSONObject expectedIcDataResponse = new JSONObject();
-                   expectedIcDataResponse.put("name", "Ahmet");
-                   expectedIcDataResponse.put("salary", "1230");
-                   expectedIcDataResponse.put("age", "44");
-                   expectedIcDataResponse.put("id", 40);
-           expectedDisDataResponse.put("status", "success");
-           expectedDisDataResponse.put("data", expectedIcDataResponse);
+        JSONObject expectedDisDataResponse = new JSONObject();
+        JSONObject expectedIcDataResponse = new JSONObject();
+        expectedIcDataResponse.put("name", "Ahmet");
+        expectedIcDataResponse.put("salary", "1230");
+        expectedIcDataResponse.put("age", "44");
+        expectedIcDataResponse.put("id", 40);
+        expectedDisDataResponse.put("status", "success");
+        expectedDisDataResponse.put("data", expectedIcDataResponse);
         expectedAnaResponse.put("status", "success");
         expectedAnaResponse.put("data", expectedDisDataResponse);
         expectedAnaResponse.put("message", "Successfully! Record has been updated.");
