@@ -2,6 +2,7 @@ package baseUrl;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
+import org.json.JSONObject;
 import org.junit.Before;
 
 public class HerokuAppBaseUrl {

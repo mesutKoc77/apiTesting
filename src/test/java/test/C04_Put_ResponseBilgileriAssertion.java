@@ -68,6 +68,16 @@ public class C04_Put_ResponseBilgileriAssertion {
                 contentType("application/json; charset=utf-8").
                 header("Server", "cloudflare").statusLine("HTTP/1.1 200 OK");
 
+
+
+        //   actualResponse.then().assertThat()..... diyerek body nin içindekiler veye statusCode gibi
+        //body e ilişkin bilgiler test edilir.
+        //ilerleyen derslerde gorulecek olan expexted data da durum degişecek şoyle ki
+        //mesela ben sadece doonen repsonse un bpdy sine yonelik bilgileri test eedeceksem
+        //ki yukarıdaki ornekte oldugu gibi
+        //actual Response u da path yapmama gerek kalmayacak zira expexted Data yok.
+        //ilerleyen dersler de expexted data yı da test edecegım zaman Path ile çevrelemem gerekiyor Response'u
+
     /*
     hoCA NIN notu;
     SİRALAMA
