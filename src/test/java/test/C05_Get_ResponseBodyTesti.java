@@ -33,13 +33,17 @@ public class C05_Get_ResponseBodyTesti {
         url = "https://jsonplaceholder.typicode.com/posts/44";
         response = given().when().get(url);
 
-        response.then().assertThat().statusCode(200).contentType(ContentType.JSON).
+        response.then().assertThat()
+                .statusCode(200)
+                .contentType(ContentType.JSON).
                 body("userId", Matchers.equalTo(5)).
                 body("title", Matchers.equalTo("optio dolor molestias sit"));
 
 
         //yukarıdaki then()'nin anlami
         //Then()	karşılaştırmak ve eşleştirecgımız koşullarımız
+
+
         // 1 - Request icin gerekli URL ve body hazirla
         // 2 - Soruda verilmisse Expected Datayi hazirla
         // 3 - Response'u kaydet

@@ -34,7 +34,7 @@ public class C03_JsonObjesiOlusturma {
                  "bookingdates":{
                          "checkin":"2018-01-01",
                          "checkout":"2019-01-01"
-                    },
+                                },
                   "totalprice":111,
                   "depositpaid":true,
                   "lastname":"Brown"
@@ -47,14 +47,13 @@ public class C03_JsonObjesiOlusturma {
         mainJsonObject.put("additionalneeds", "Breakfast");
         mainJsonObject.put("bookingdates", innerJsonObject);
         mainJsonObject.put("totalprice", 111);
-        mainJsonObject.put("depositpaid", "true");
+        mainJsonObject.put("depositpaid", true);
         mainJsonObject.put("lastname", "Brown");
 
         innerJsonObject.put("checkin", "2018-01-01");
         innerJsonObject.put("checkout", "2019-01-01");
 
         System.out.println(mainJsonObject);
-
 
     }
 

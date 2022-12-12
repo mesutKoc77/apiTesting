@@ -4,6 +4,7 @@ import baseUrl.HerokuAppBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import org.json.JSONObject;
+import org.junit.Assert;
 import org.junit.Test;
 import testData.TestDataHerOkuApp;
 
@@ -71,7 +72,10 @@ public class C21_Post_TestDataKullanimi extends HerokuAppBaseUrl {
 
         actualResponse = given().contentType(ContentType.JSON).spec(specHeroku)
                 .when().body(anaRequestBody.toString()).post("/{pp1}");
-
+        //toString dememmizin n edeni, Json objesi Java nin kendi objeleri arasında bulunmuyor.
+        //yollarken Strin golarak git diyoruz.
+        //bana given().contentType(ContentType.JSON) content type i Json olarak yolla diyorum.
+        //giderken spec imi al
 
         //actual Response umu oluşturdum
 
@@ -85,8 +89,8 @@ public class C21_Post_TestDataKullanimi extends HerokuAppBaseUrl {
         assertEquals(testDataHerOkuApp.basariliContentType,actualResponse.contentType());
 
 
-
-        assertFalse(pathActualResponse.getString("bookingid").isEmpty());
+        Assert.assertNotNull("ilgili Id no Bulunamadi",pathActualResponse.getString("bookingid"));
+        //assertFalse(pathActualResponse.getString("bookingid").isEmpty());
         assertEquals(expectedResponse.getJSONObject("booking").get("firstname"), pathActualResponse.get("booking.firstname"));
         assertEquals(expectedResponse.getJSONObject("booking").get("lastname"), pathActualResponse.get("booking.lastname"));
         assertEquals(expectedResponse.getJSONObject("booking").get("totalprice"), pathActualResponse.get("booking.totalprice"));

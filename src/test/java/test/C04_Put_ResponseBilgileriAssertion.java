@@ -34,11 +34,13 @@ public class C04_Put_ResponseBilgileriAssertion {
         JSONObject jsonObjectBody = new JSONObject();
         jsonObjectBody.put("title", "Kenan");
         jsonObjectBody.put("body", "sezer");
-        jsonObjectBody.put("userId", "12");
+        jsonObjectBody.put("userId", 12);
         jsonObjectBody.put("id", 35);
 
         response = given().contentType(ContentType.JSON).
-                   when().body(jsonObjectBody.toString()).put(url);
+                when()
+                .body(jsonObjectBody.toString())
+                .put(url);
 
         //when demek ilgili url'e benim oluşturdugum body'i yolla veya put demek---yani emrimiz bu.
         //yani bunu yolladıgın ZAMAN
@@ -69,7 +71,6 @@ public class C04_Put_ResponseBilgileriAssertion {
                 header("Server", "cloudflare").statusLine("HTTP/1.1 200 OK");
 
 
-
         //   actualResponse.then().assertThat()..... diyerek body nin içindekiler veye statusCode gibi
         //body e ilişkin bilgiler test edilir.
         //ilerleyen derslerde gorulecek olan expexted data da durum degişecek şoyle ki
@@ -88,6 +89,54 @@ public class C04_Put_ResponseBilgileriAssertion {
         //given()'dan sonra preConditionlar when() dan sonra ise yapılacak işlemler gelir.
      */
 
+
+    }
+
+    @Test
+    public void test03() {
+        /*
+        https://jsonplaceholder.typicode.com/posts/3 url’ine asagidaki
+        Json formatindaki body ile bir PUT request gonderdigimizde
+                {
+                "title":"eczane Cankaya",
+                "body":"taşındı",
+                "userId":17,
+                "id":3
+                }
+        donen Response’un,
+            status code’unun 200,
+            ve content type’inin application/json; charset=utf-8,
+            ve Server isimli Header’in degerinin cloudflare,
+            ve status Line’in HTTP/1.1 200 OK
+      */
+        String urlYeni = "https://jsonplaceholder.typicode.com/posts/3";
+        JSONObject jsonYeniObje = new JSONObject();
+        jsonYeniObje.put("title", "eczane Cankaya");
+        jsonYeniObje.put("body", "taşındı");
+        jsonYeniObje.put("userId", 17);
+
+        Response responseYeni;
+
+        responseYeni = given().contentType(ContentType.JSON)
+                .when()
+                .body(jsonYeniObje.toString())
+                .put(urlYeni);
+        // responseYeni.prettyPrint();
+        /*
+
+        {
+    "title": "eczane Cankaya",
+    "body": "taşındı",
+    "userId": 17,
+    "id": 3
+    }
+         */
+
+        responseYeni.then().assertThat()
+                .statusCode(200)
+                .contentType("application/json; charset=utf-8")
+                .header("Server", "cloudflare")
+                .statusLine("HTTP/1.1 200 OK");
 
 
     }
