@@ -2,6 +2,7 @@ package test;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -38,6 +39,7 @@ public class C10_Get_ResponseBodyTestiListKullanimi {
                         "data.employee_name", hasItem("Ashton Cox"),
                         "data.employee_age", hasItems(61, 40, 30)
                 );
+
 
 
     }

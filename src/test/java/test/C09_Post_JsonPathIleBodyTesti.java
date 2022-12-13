@@ -13,6 +13,7 @@ public class C09_Post_JsonPathIleBodyTesti {
             https://restful-booker.herokuapp.com/booking
              url’ine asagidaki body'ye sahip
             bir POST request gonderdigimizde
+
                        {
                             "firstname" : "Ali",
                             "lastname" : "Bak",
@@ -24,6 +25,7 @@ public class C09_Post_JsonPathIleBodyTesti {
                             },
                             "additionalneeds" : "wi-fi"
                         }
+
             donen Response’un,
             status code’unun 200,
             ve content type’inin application-json,
@@ -42,7 +44,9 @@ public class C09_Post_JsonPathIleBodyTesti {
     public void postJsonTest() {
         Response response;
         String url = "https://restful-booker.herokuapp.com/booking";
+
         JSONObject catiJsonObject = new JSONObject();
+
         JSONObject datesJsonObject = new JSONObject();
         datesJsonObject.put("checkin", "2021-06-01");
         datesJsonObject.put("checkout", "2021-06-10");
@@ -55,8 +59,15 @@ public class C09_Post_JsonPathIleBodyTesti {
         catiJsonObject.put("additionalneeds", "wi-fi");
 
 
-        response = given().contentType(ContentType.JSON).when().body(catiJsonObject.toString()).post(url);
-        response.prettyPrint();
+        response = given()
+                .contentType(ContentType.JSON)
+                .when()
+                .body(catiJsonObject.toString())
+                .post(url);
+
+      //  response.prettyPrint();
+
+
         /*
         {
     "bookingid": 65565,
@@ -73,7 +84,6 @@ public class C09_Post_JsonPathIleBodyTesti {
     }
 }
          */
-
 
         response.then().assertThat().
                 statusCode(200).contentType(ContentType.JSON).

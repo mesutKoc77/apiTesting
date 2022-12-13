@@ -102,6 +102,7 @@ public class C24_Post_Deserialization extends HerokuAppBaseUrl {
         assertEquals(((Map) ((Map) actualResponse.get("booking")).get("bookingdates")).get("checkout"), ((Map) ((Map) actualResponse.get("booking")).get("bookingdates")).get("checkout"));
         assertEquals(((Map) actualResponse.get("booking")).get("additionalneeds"), ((Map) expectedValue.get("booking")).get("additionalneeds"));
         //ODEV  NEREDE PAYLAŞILDI
+        //slyatta c25 ve c26 olabilir
 
     }
 }

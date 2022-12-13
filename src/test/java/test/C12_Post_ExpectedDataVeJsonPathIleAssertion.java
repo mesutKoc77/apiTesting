@@ -14,6 +14,7 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
    https://restful-booker.herokuapp.com/booking url’ine
    asagidaki body'ye sahip bir POST request gonderdigimizde
    donen response’un id disinda asagidaki gibi oldugunu test edin.
+
                        Request body
                   {
                        "firstname" : "Ahmet",
@@ -26,6 +27,8 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
                                          },
                        "additionalneeds" : "wi-fi"
                    }
+
+
 
                        Response Body
                   {
@@ -51,6 +54,7 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
         String url;
 
         JSONObject postEdilen = new JSONObject();
+
         JSONObject dateJsonObject = new JSONObject();
         dateJsonObject.put("checkin", "2021-06-01");
         dateJsonObject.put("checkout", "2021-06-10");
@@ -64,10 +68,12 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
 
         //post edilecek bilgilerin objesi oluşturuldu
         //şimdi ise beklenilen objenin oluşturulmasi gerekmektedir.
-        JSONObject catiExpectedJson = new JSONObject();
+
+      JSONObject catiExpectedJson = new JSONObject();
 
 
-        JSONObject bookingExpectedJson = new JSONObject();
+      JSONObject bookingExpectedJson = new JSONObject();
+
         JSONObject dateExpectedJson = new JSONObject();
         dateExpectedJson.put("checkin", "2021-06-01");
         dateExpectedJson.put("checkout", "2021-06-10");
@@ -79,7 +85,7 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
         bookingExpectedJson.put("bookingdates", dateExpectedJson);
         bookingExpectedJson.put("additionalneeds", "wi-fi");
 
-        catiExpectedJson.put("bookingid", 24);
+      //  catiExpectedJson.put("bookingid", 24);
         catiExpectedJson.put("booking", bookingExpectedJson);
 
         url = "https://restful-booker.herokuapp.com/booking";
@@ -92,7 +98,7 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
 
         JsonPath pathResponse = response.jsonPath();
 
-        assertEquals("booking firstname çalışmadı",catiExpectedJson.getJSONObject("booking").get("firstname"), pathResponse.getString("booking.firstname"));
+        assertEquals("booking firstname çalışmadı",catiExpectedJson.getJSONObject("booking").get("firstname"), pathResponse.get("booking.firstname"));
         assertEquals("hata mesaji",catiExpectedJson.getJSONObject("booking").get("lastname"), pathResponse.getString("booking.lastname"));
         assertEquals(catiExpectedJson.getJSONObject("booking").get("totalprice"), pathResponse.getInt("booking.totalprice"));
         assertEquals(catiExpectedJson.getJSONObject("booking").get("depositpaid"), pathResponse.getBoolean("booking.depositpaid"));

@@ -2,7 +2,6 @@ package test;
 
 import baseUrl.JsonPlaceHolderBaseURL;
 import io.restassured.http.ContentType;
-import org.junit.Assert;
 import org.junit.Test;
 import testData.TestDataJsonPlaceHolder;
 

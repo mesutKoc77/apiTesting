@@ -2,8 +2,10 @@ package test;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matchers;
 import org.json.JSONObject;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -16,6 +18,7 @@ public class C06_Post_ResponseBodyTesti {
         "body":"API ogrenmek ne guzel",
         "userId":10,
         }
+
         donen Response’un,
         status code’unun 201,
         ve content type’inin application/json
@@ -28,20 +31,27 @@ public class C06_Post_ResponseBodyTesti {
 
     @Test
     public void postBodyTest() {
+
         Response response;
         String url;
+
         url = "https://jsonplaceholder.typicode.com/posts";
+
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("title", "API");
         jsonObject.put("body", "API ogrenmek ne guzel");
         jsonObject.put("userId", 10);
+        jsonObject.put("title", "API");
+
 
         // System.out.println("jsonObject = " + jsonObject);
         //jsonObject = {"title":"API","body":"API ogrenmek ne guzel","userId":10}
         //toString() diyerek de ilgili nesneyi yani jsonObject nesnesini String e cevirerek post ediyor
         //
-        response = given().contentType(ContentType.JSON)
-                .when().body(jsonObject.toString()).post(url);
+        response = given()
+                .contentType(ContentType.JSON)
+                .when()
+                .body(jsonObject.toString()).post(url);
+
 
         //when demek ilgili url'e benim oluşturdugum body yolla demek---yani emrimiz bu.
         //yani bunu yolladıgın ZAMAN...
@@ -51,7 +61,7 @@ public class C06_Post_ResponseBodyTesti {
         //sonuc olarak given dan sonra daha çok öncesinden yapılması gereken şartlar vb. soyluyoruz.
         //when den sonra ise genellikle Aksiyon un yani ne yapılacagı emriniz veriyoruz.
 
-        // response.prettyPrint(); // ve bana json formatinda cevap verdi
+       response.prettyPrint(); // ve bana json formatinda cevap verdi
         /*
         {
     "title": "API",
@@ -68,10 +78,12 @@ public class C06_Post_ResponseBodyTesti {
                 body("userId", Matchers.lessThan(100)).
                 body("body", Matchers.containsString("API"));
 
+
+
         //yukarıdaki then()'nin anlami
         //Then()	karşılaştırmak ve eşleştirecgımız koşullarımız
 
-//1.04
+
     }
 
 

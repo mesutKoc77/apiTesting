@@ -2,11 +2,10 @@ package test;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 
 
 public class C7_Get_BodyTekrarlardanKurtulmaa {
@@ -29,21 +28,27 @@ public class C7_Get_BodyTekrarlardanKurtulmaa {
         Response response;
         String url;
 
+
         url = "https://restful-booker.herokuapp.com/booking/14018";
-        response = given().contentType(ContentType.JSON).when().get(url);
+        response = given()
+                .contentType(ContentType.JSON)
+                .when()
+                .get(url);
 
         response.then().assertThat()
                 .statusCode(200).contentType("application/json; charset=utf-8").
-body("firstname", equalTo("Jane"),"lastname", equalTo("Doe"),
-                       "totalprice", equalTo(111),
-                      "depositpaid", equalTo(true),
-                   "additionalneeds", equalTo("Extra pillows please"));
+
+                body("firstname", equalTo("Jane"),
+                        "lastname", equalTo("Doe"),
+                        "totalprice", equalTo(111),
+                        "depositpaid", equalTo(true),
+                        "additionalneeds", equalTo("Extra pillows please"));
+
         //import static org.hamcrest.Matchers.*;
         //tek tek body i yazmaya gerek yok.
 
 
     }
-
 
 
 }

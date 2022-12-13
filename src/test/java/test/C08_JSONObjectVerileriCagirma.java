@@ -16,22 +16,23 @@ public class C08_JSONObjectVerileriCagirma {
         "streetAddress": "naist street",
         "city": "Nara",
         "postalCode": "630-0192"
-    },
+               },
     "phoneNumbers": [
-        {
+             {
             "type": "iPhone",
             "number": "0123-4567-8888"
-        },
-        {
+             },
+          {
             "type": "home",
             "number": "0123-4567-8910"
-        }
-    ]
+          }
+       ]
 }
      */
 
     @Test
     public void jsonPath01() {
+
         //https://jsonpath.com/
         JSONObject catiObject = new JSONObject();
         JSONObject adressJson = new JSONObject();
