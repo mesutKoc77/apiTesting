@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 
-public class C7_Get_BodyTekrarlardanKurtulmaa {
+public class C07_Get_BodyTekrarlardanKurtulmaa {
              /*
                     https://restful-booker.herokuapp.com/booking/14018 url’ine
                     bir GET request gonderdigimizde donen Response’un,
